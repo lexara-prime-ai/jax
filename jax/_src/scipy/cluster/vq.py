@@ -27,7 +27,7 @@ Does not support the Scipy argument ``check_finite=True``,
 because compiled JAX code cannot perform checks of array values at runtime
 """)
 
-
+# This method interacts with XLA
 @_wraps(scipy.cluster.vq.vq, lax_description=_no_chkfinite_doc, skip_params=('check_finite',))
 def vq(obs, code_book, check_finite=True):
     check_arraylike("scipy.cluster.vq.vq", obs, code_book)
